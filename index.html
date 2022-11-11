@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammed Fasil k</title>
-    <link rel="icon" href="Images/MyImage.png">
+    <link rel="icon" href="./manali.png">
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://kit.fontawesome.com/25d370aa10.js" crossorigin="anonymous"></script>
@@ -14,7 +14,7 @@
     <div id="header">
         <div class="container">
             <nav>
-                <img src="Images/Logo.jpg" alt="" class="logo">
+                <img src="./Images/Logo.jpg" alt="" class="logo">
                 <ul id="sidemenu">
                     <li><a href="#header">Home</a></li>
                     <li><a href="#about">About</a></li>
@@ -36,7 +36,7 @@
         <div class="container">
             <div class="raw">
                 <div class="about-col-1">
-                    <img src="images/MyImage.png" alt="">
+                    <img src="./manali.png" alt="">
                 </div>
                 <div class="about-col-2">
                     <h1 class="sub-title">About Me</h1>
@@ -114,23 +114,23 @@
                     <img src="https://w0.peakpx.com/wallpaper/134/901/HD-wallpaper-ball-tennis-court-reflection-lines-marking.jpg" alt="ball">
                     <div class="layer">
                         <h3>Bouncer Game</h3>
-                        <p>This game will recreate your childhood</p>
+                        <p>Multiplayer ball bounce game</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="work">
                     <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=455&q=80" alt="web" alt="web">
                     <div class="layer">
-                        <h3>Bouncer Game</h3>
-                        <p>This game will recreate your childhood</p>
+                        <h3>Spotify Clone</h3>
+                        <p>A static clone web page for spotify</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
                 <div class="work">
                     <img src="https://images.unsplash.com/photo-1585229259079-05ab82f93c7b?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80" alt="app"" alt="app">
                     <div class="layer">
-                        <h3>Bouncer Game</h3>
-                        <p>This game will recreate your childhood</p>
+                        <h3>TradeTake</h3>
+                        <p>Application that help you to take good trades</p>
                         <a href="#"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                     </div>
                 </div>
@@ -157,8 +157,22 @@
                 </div>
                 <div class="contact-right">
                     <form id="submit-form" >
-                        <input type="text" name="Name" placeholder="Your Name" required>
-                        <input type="email" name="Email" placeholder="Your Email" required>
+                        <!-- <input type="text" name="Name" placeholder="Your Name" required>
+                        <input type="email" name="Email" placeholder="Your Email" required> -->
+                        <div class="form-group">
+                            <!-- <input  class="form-control" name="name" type="text" placeholder="Name *" required> -->
+                            <input id="name" type="text" name="name" class="form-control" placeholder="Name" required onblur="namecheck()">
+                            <label id="nmlabel" for="name" style="display: none; color:red;">This field is requierd</label>
+                            <label id="nmlabel-01" for="name" style="display: none; color:red;">Name does't start with number</label>
+                            <label id="nmlabel-02" for="name" style="display: none; color:red;">Name does't containe special charecters</label>
+                        </div>
+                        <div class="form-group">
+                            <!-- <input class="form-control" name="email" type="email" placeholder="Email *" required> -->
+                            <input id="email" type="email" name="email" class="form-control" placeholder="Email Address" required onblur="emailcheck()">
+                              <label id="el" for="name" style="display: none; color:red;">This field is requierd</label>
+                              <label id="el-01" for="name" style="display: none; color:red;">Email does't start with number</label>
+                              <label id="el-02" for="name" style="display: none; color:red;">Email is invalid</label>
+                        </div>
                         <textarea name="Message" rows="6" placeholder="Your Message"></textarea>
                         <button type="submit" class="btn btn2">Submit</button>
                     </form>
@@ -218,24 +232,83 @@
     })
 </script>
 
-<!-- <script>
-    const scriptURL = '<https://script.google.com/macros/s/AKfycbygYmdhtYcsmucoCtPg4JhMfQP1L8nGlGrW0Wg7lqqb2uVaPZGUQdVY2aci2hYv7Twi3A/exec>'
-    const form = document.forms['submit-to-google-sheet']
-    const msg = getElementById("msg")
-  
-    form.addEventListener('submit', e => {
-      e.preventDefault()
-      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-        .then(response => {
-            msg.innerHTML = "Message sent succesfully"
-            setTimeout(function(){
-                msg.innerHTML = "";
-            },5000)
-            form.reset();
-    })
-        .catch(error => console.error('Error!', error.message))
-    })
-  </script> -->
+<script>
+    function namecheck()
+    {
+        let name=document.getElementById("name").value
+        let nm=null
+         nm = name.trim()
+       var letters = /^[A-Za-z]+$/;
+       var spc=/^[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]+[A-Za-z]*$/;
+        document.getElementById("name").value = nm;
+        if(nm==""||name==null)
+        {
+            document.getElementById("nmlabel").style.display="block"
+            return false
+        }
+        else if(!isNaN(nm[0]))
+        {
+            document.getElementById("nmlabel").style.display="none"
+            document.getElementById("nmlabel-01").style.display="block"
+            return false
+        }
+        else if(nm.match(spc))
+        {
+            document.getElementById("nmlabel").style.display="none" 
+            document.getElementById("nmlabel-01").style.display="none"  
+            document.getElementById("nmlabel-02").style.display="block"
+            return false
+        }
+        else{
+            document.getElementById("nmlabel").style.display="none" 
+            document.getElementById("nmlabel-01").style.display="none" 
+            document.getElementById("nmlabel-02").style.display="none"
+            return true
+    
+        }
+    }
+    
+    
+    function emailcheck()
+    {
+        var val=document.getElementById("email").value
+        var v=null
+         v = val.trim()
+        document.getElementById("email").value = v;
+        if(v==""||val==null)
+        {
+            document.getElementById("el").style.display="block"
+            return false
+        }
+        else if(!isNaN(v[0]))
+        {
+            document.getElementById("el-01").style.display="block"
+            return false
+        }
+    
+    
+        else if (!/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(v))
+      {
+        document.getElementById("el-02").style.display="block"
+        return false
+      }
+        // alert("You have entered an invalid email address!")
+        // return (false)
+    
+    
+    
+    
+    
+        else{
+            document.getElementById("el").style.display="none" 
+            document.getElementById("el-01").style.display="none"
+            document.getElementById("el-02").style.display="none" 
+            return true
+    
+        }
+    }
+
+</script>
     
 </body>
 </html>
